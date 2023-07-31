@@ -1,0 +1,21 @@
+.brandsSec {
+    padding: 30px 0;
+}
+.brandsItem ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+}
+
+.brandsItem ul li a {
+    display: inline-flex;
+    background: #ffffff;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 0 8px 0 rgb(7 7 7 / 10%);
+    height: 137px;
+}
+

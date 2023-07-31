@@ -1,0 +1,99 @@
+.topHeaderSec {
+  background: #124a2f;
+  padding: 8px 0;
+}
+.topHeaderInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.freeReturn p {
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+}
+.languageOption {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+.rightList {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+.pageLinks ul,
+.socialMedia ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.socialMedia ul {
+  column-gap: 15px;
+}
+.pageLinks ul li a {
+  color: #fff;
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 14px;
+}
+.socialMedia ul li a {
+  color: #fff;
+}
+.optionSelect {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.lang select,
+.rupees select {
+  background: transparent;
+  color: #fff;
+  align-items: center;
+  display: flex;
+  border: 0;
+  font-size: 14px;
+}
+.lang select option,
+.rupees select option {
+  color: #111;
+}
+.miscel {
+  display: flex;
+  column-gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .pageLinks ul li a {
+    font-size: 12px;
+  }
+}
+
+.fabar {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .heading-row {
+    display: none;
+  }
+  .fabar {
+    display: block;
+    font-size: 3em;
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .heading-row {
+    display: block;
+  }
+  .fabar {
+    display: none;
+    
+  }
+}

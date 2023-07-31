@@ -1,0 +1,39 @@
+.selectImageInfo {
+    padding-right: 10px;
+}
+.selectImageSlider {
+    height: 360px;
+    overflow: hidden;
+}
+
+.productSliderItem {
+    padding-bottom: 10px;
+}
+
+.productSliderItem img {
+    width: 95px;
+    height: 64px;
+    cursor: pointer;
+}
+
+.selectImageInfo .slidePrev, .selectImageInfo .slideNext {
+    width: 100%;
+    background: #fff;
+    font-size: 23px;
+    margin-bottom: 10px;
+    border: 0;
+    box-shadow: 0 0 8px 0 rgb(7 7 7 / 10%);
+    padding: 9px 0;
+    line-height: 0;
+    border: solid 1px #fff;
+    transition: .4s ease-in-out;
+}
+.selectImageInfo .slideNext {
+    margin-top: 10px;
+}
+.selectImageInfo .slideNext:hover,
+.selectImageInfo .slidePrev:hover {
+    color: #fff;
+    border: solid 1px #25782e;
+    background-color: #25782e;
+}

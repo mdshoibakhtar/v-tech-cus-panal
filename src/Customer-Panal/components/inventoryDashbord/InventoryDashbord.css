@@ -1,0 +1,27 @@
+.cart-item-list {
+  align-items: center;
+  justify-content: end;
+}
+.cart-item-list > li {
+  margin-left: 10px;
+}
+.cart-item-list > li > a {
+  padding: 5px 15px;
+  background-color: #004ea2;
+  color: white;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 426px) {
+  .cart-item-list {
+    align-items: center;
+    justify-content: end;
+    font-size: 9px;
+  }
+  .cart-item-list> li>a{
+    padding: 2px 8px;
+  }
+  #head-invent{
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,78 @@
+.collectionFilter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ededed;
+    margin: 0 0 15px;
+}
+
+.collectionFilterItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 20px;
+}
+
+.collectionFilterList ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    column-gap: 10px;
+}
+
+.totalProducts h6 {
+    color: #2a2a2a;
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.collectionFilterSort select {
+    height: 40px;
+    border: 0;
+    padding: 0 10px;
+    color: #2a2a2a;
+    font-weight: 400;
+    width: 160px;
+}
+
+.collectionFilterSort select option {
+    text-transform: capitalize;
+}
+
+.collectionFilterList ul li .grid-view-btn {
+    background: #25782e;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border: 0;
+    justify-content: center;
+    transition: .4s ease-in-out;
+}
+
+.collectionFilterList ul li .grid-view-btn:hover {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .collectionFilter {
+        margin-top: 30px !important;
+    }
+}
+@media (max-width: 480px) {
+
+    .collectionFilter {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        row-gap: 15px;
+    }
+}

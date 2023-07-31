@@ -1,0 +1,148 @@
+.productsSection {
+    padding: 70px 0;
+    background-color: #f7f7f7;
+    border: 1px solid #ededed;
+}
+.productsSection .row {
+    justify-content: center;
+}
+.featuredImg,
+.featuredFigure {
+    position: relative;
+}
+
+.featuredImg {
+    overflow: hidden;
+}
+
+.featuredImg img {
+    transition: .4s ease-in-out;
+
+}
+
+.featuredImg:hover img {
+    transform: scale(1.1);
+}
+
+.featuredImg:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #1111119e;
+    z-index: 1;
+}
+
+.featuredImg img {
+    height: 210px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.hotList {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.hotList li a {
+    display: inline-block;
+    padding: 4px 6px;
+    width: 43px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #de392f;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.hotList li:last-child a {
+    background-color: #25782e;
+}
+
+.featuredContent {
+    padding: 15px 15px 25px;
+    background-color: #fff;
+    text-align: center;
+    border: 1px solid #ededed;
+}
+
+.featuredContent h6 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #878787;
+}
+
+.featuredContent h5 {
+    text-transform: capitalize;
+    font-size: 19px;
+}
+
+.featuredContent .rating svg {
+    color: #25782e;
+}
+
+.featuredOption select {
+    background: #bdbdbd;
+    width: 120px;
+    height: 30px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid #b1b1b1;
+    font-size: 13px;
+    display: none;
+}
+
+.rateDigit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    margin: 10px 0;
+}
+
+.rateDigit .cross {
+    text-decoration: line-through;
+    color: #878787;
+    font-size: 14px;
+}
+
+.rateDigit .currentPrice {
+    font-weight: 600;
+    color: #131313;
+    font-size: 18px;
+}
+
+
+@media (max-width: 991px){
+    .fisherman-content{
+        text-align: center;
+    }
+    .brandsItem ul {
+        flex-wrap: wrap;
+        row-gap: 20px;
+        justify-content: center;
+    }
+    .brandsItem ul li {
+        width: 20%;
+    }
+}
+@media (max-width: 767px){
+    .brandsItem ul li {
+        width: 33.33%;
+    }
+    .brandsItem ul li a {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,1 @@
+export const base_Url_cust = 'https://onlineparttimejobs.in/api/'; 

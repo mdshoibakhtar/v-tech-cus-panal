@@ -1,0 +1,191 @@
+@media (min-width: 768px) and (max-width: 1199px) {
+    .rightList {
+        column-gap: 20px;
+    }
+
+    .navbar-expand-md .navbar-nav {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .rightList {
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .searchItem {
+        flex-wrap: wrap;
+    }
+
+    .searchInf {
+        width: 400px;
+    }
+
+    .searchIcons {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .miscel {
+        display: flex;
+        column-gap: 18px;
+    }
+
+}
+
+
+@media (max-width: 991px) {}
+
+@media (max-width: 767px) {
+    .row.changeGrid .col-lg-3 {
+        width: 100% !important;
+    }
+
+
+
+    .pagination.paginationSec {
+        border: 0;
+        justify-content: center;
+    }
+
+    .topHeaderInfo,
+    .rightList,
+    .searchItem {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .miscel {
+        display: flex;
+        column-gap: 10px;
+    }
+
+    .searchItem {
+        row-gap: 15px;
+        flex-direction: column;
+    }
+
+    .searchSec {
+        width: 100%;
+    }
+
+    .searchInf {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .SelectImageSec {
+        margin-bottom: 30px;
+    }
+
+    .product-details-desc {
+        text-align: center;
+    }
+
+    .product-details-desc h3,
+    .product-details-desc .price,
+    .product-details-desc .allTaxes {
+        text-align: center;
+    }
+
+    .cost-emi {
+        display: inline-block;
+    }
+
+    .availableOffer {
+        max-width: 100% !important;
+    }
+
+    .availableOffer p {
+        text-align: left;
+    }
+
+    .timerWrapper,
+    .cost-emi {
+        width: 100%;
+    }
+
+    .warrantyText,
+    .downPaymentNumber {
+        text-align: left;
+    }
+
+    .timerWrapper {
+        width: 100% !important;
+    }
+
+    .pageLinks ul li a {
+        font-size: 12px;
+    }
+
+    .serviceItemInfo,
+    .networkItem ul,
+    .brandsItem ul {
+        flex-wrap: wrap;
+    }
+
+    .brandsItem ul {
+        justify-content: center;
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+
+    .brandsItem ul li {
+        width: 47%;
+    }
+
+    .brandsItem,
+    .fisherman-content.mb-5 {
+        text-align: center;
+    }
+    .searchItem .logo{
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 557px) {
+    .searchInf {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 481px) {
+    .product-details-desc .product-add-to-cart .default-btn {
+        padding: 12px 18px !important;
+    }
+
+    .SelectImageSec {
+        flex-direction: column-reverse;
+    }
+
+    .SelectImg {
+        width: 100% !important;
+    }
+
+    .selectImageSlider {
+        display: flex;
+        column-gap: 10px;
+        height: 100px !important;
+        align-items: center;
+    }
+
+    .selectImageInfo {
+        display: flex;
+        align-items: center;
+    }
+
+    .selectImageInfo .slidePrev,
+    .selectImageInfo .slideNext {
+        width: 40px !important;
+    }
+
+    .selectImageInfo .slidePrev {
+        transform: rotate(275deg);
+    }
+
+    .selectImageInfo .slideNext {
+        transform: rotate(275deg);
+    }
+}

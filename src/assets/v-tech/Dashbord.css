@@ -1,0 +1,20 @@
+
+.dasbord-card{
+  height: 300px;
+}
+.r-list-img>img{
+  width: 50%;
+}
+.table-secondary{
+  font-size: 12px;
+}
+.rounded-4 th,td{
+font-size: 0.9em;
+}
+
+.card-img{
+  width: 80%;
+}
+.card-text{
+  font-size: 12px;
+}

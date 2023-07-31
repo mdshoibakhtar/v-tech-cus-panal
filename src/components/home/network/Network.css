@@ -1,0 +1,63 @@
+.networkSec {
+    padding: 50px 0;
+}
+
+.serviceList {
+    border-bottom: 1px solid #ebebeb;
+}
+.networkItem ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+.networkItem ul li {
+    width: 100%;
+    background: aliceblue;
+    padding: 20px;
+    border-right: 1px solid #d7d7d7;
+    text-align: center;
+}
+.brandsSec {
+    padding: 30px 0;
+}
+.serviceList {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.networkItem ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.networkItem ul li {
+    width: 100%;
+    background: #61b76a;
+    padding: 20px;
+    border-right: 1px solid #d7d7d7;
+    text-align: center;
+}
+.networkNumber h2 {
+    color: #fff;
+    margin: 0;
+}
+.networkNumber p {
+    color: #5a5a5a;
+    text-transform: capitalize;
+}
+
+
+@media (max-width: 991px){
+    .networkNumber h2{
+        font-size: 26px;
+    }
+}
+@media (max-width: 767px){
+    .networkItem ul li{
+        border-bottom: 1px solid #d7d7d7;
+    }
+}

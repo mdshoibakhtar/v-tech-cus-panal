@@ -1,0 +1,15 @@
+
+.submitReview button{
+    background: #de392f;
+    border: 1px solid #de392f;
+    padding: 7px 14px;
+    color: #ffff;
+    text-transform: capitalize;
+    margin-top: 15px;
+}
+.reviewForm input{
+    text-transform: capitalize;
+    height: 55px;
+    margin-bottom: 15px;
+    border-radius: 0;
+}
