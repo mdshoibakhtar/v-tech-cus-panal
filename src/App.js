@@ -39,6 +39,8 @@ import PurchaseOrderListPage from "./Customer-Panal/pages/purchaseOrderList";
 import LoginSection from "./loginPage/LoginAdmin";
 import Protected from "./Customer-Panal/components/protected/Protected";
 import Registration from "./Customer-Panal/components/registration/Registration";
+import BillingAddress from "./Customer-Panal/pages/billingAdd/BillingAddress";
+import ShippingAddress from "./Customer-Panal/pages/shippingadd/ShippingAddress";
 // import ChallanDetails from "./Customer-Panal/components/deliveryChallan/challanDetails/ChallanDetails";
 
 function App() {
@@ -83,6 +85,12 @@ function App() {
           <Route path="agreement" element={<AgreementPage />} />
           <Route path="inventory" element={<InventoryPage />} />
           <Route path="outstanding" element={<OutstandingPage />} />
+
+
+          <Route path="Shipping" element={<ShippingAddress />} />
+          <Route path="Billing" element={<BillingAddress />} />
+
+
           <Route path="invoices" element={<InvoicesPage />} />
           <Route
             path="invoices/invoices-details/:id"
