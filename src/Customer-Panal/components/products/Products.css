@@ -1,0 +1,12 @@
+.prodcutsSec{
+    padding: 30px 0;
+    background-color: #f7f7f7;
+}
+.row.changeGrid .col-lg-3 {
+    width: 33.33333333%;
+}
+@media (max-width: 991px){
+    .row.changeGrid .col-lg-3{
+        width: 50%;
+    }
+}

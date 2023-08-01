@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { setProfile } from "../products/productSlice";
 
 function AsideBar({ showSidebar }) {
   const [state, setState] = useState(false);
@@ -9,6 +11,10 @@ function AsideBar({ showSidebar }) {
   const mobile = window.localStorage.getItem('mobile')
   const navigate = useNavigate()
 
+  const  setProfiles = useSelector((state) => {
+    return state.productList  
+  })
+  const dispacher = useDispatch()
 
   const removeData = ()=>{
     window.localStorage.setItem("token", '');
@@ -17,8 +23,10 @@ function AsideBar({ showSidebar }) {
     window.localStorage.setItem("email", '');
     window.localStorage.setItem("mobile", '');
     window.localStorage.setItem("userName", '');
+    dispacher(setProfile(null))
     navigate('/loginPage')
   }
+  console.log(setProfiles);
   return (
     <>
       <div
@@ -26,15 +34,20 @@ function AsideBar({ showSidebar }) {
           }`}
       >
         <div className="aiz-user-sidenav rounded overflow-auto c-scrollbar-light pb-5 pb-xl-0">
-          <div className="p-4 text-xl-center mb-4 border-bottom bg-primary text-white position-relative lastWork lastWork-2">
+          <div className="p-4 text-xl-center border-bottom bg-primary text-white position-relative lastWork lastWork-2">
             <span className="avatar avatar-md mb-3">
-              <img
-                src="https://mmslfashions.in/public/assets/img/avatar-place.png"
+
+              {setProfiles?.profileData?.image?.url ?<img
+                src={setProfiles?.profileData?.image?.url}
                 className="image rounded-circle"
-              />
+              /> :<img
+                src={setProfiles?.profileData?.profilePhoto?.url}
+                className="image rounded-circle"
+              />}
+              
             </span>
-            <h4 className="h5 fs-16 mb-1 fw-600">{names}</h4>
-            <div className="text-truncate opacity-60">{mobile}</div>
+            <h4 className="h5 fs-16 mb-1 fw-600">{setProfiles?.profileData?.firstname} {setProfiles?.profileData?.lastname}</h4>
+            <div className="text-truncate opacity-60">{setProfiles?.profileData?.mobile}</div>
           </div>
 
           <div className="sidemnenu mb-3">
@@ -99,6 +112,27 @@ function AsideBar({ showSidebar }) {
                   <i className="las la-home aiz-side-nav-icon"></i>
                   <i className="bi bi-heart"></i>
                   <span className="aiz-side-nav-text">Quotations</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="wishlists" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">My Wishlist</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="Shipping" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">My Shipping Address</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="Billing" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">My Billing Address</span>
                 </Link>
               </li>
               <li className="aiz-side-nav-item">
