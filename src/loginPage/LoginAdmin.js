@@ -8,6 +8,7 @@ import { Button, Form } from "react-bootstrap";
 import img2 from "../assets/img/vtech.png";
 // import axios from "axios";
 import { useLoginStaffsMutation, useSellerLoginMutation } from "../Customer-Panal/components/all-products/allproductsApi/allProductsApi";
+import axios from "axios";
 
 function LoginSection({ signin }) {
 
@@ -30,26 +31,38 @@ function LoginSection({ signin }) {
         setLoginData(cloneData)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (login.email === loginData.email && login.password === loginData.password) {
+        try {
+            const res = await axios.post(`https://onlineparttimejobs.in/api/user/login`, loginData)
             setIsEmail(false)
             setIsPassword(false)
             setIsSucces(true)
             setTimeout(() => {
                 navigateCustomer("/customer")
             }, 1000);
-        }
-        else if (login.email !== loginData.email) {
+            window.localStorage.setItem("token", res.data.token);
+            window.localStorage.setItem("user_id", res.data._id);
+            window.localStorage.setItem("isLogin", true);
+            window.localStorage.setItem("email", res.data.email);
+            window.localStorage.setItem("mobile", res.data.mobile);
+            // window.localStorage.setItem("profilePic", data?.image?.url);
+            window.localStorage.setItem("userName", `${res?.data.firstname} ${res?.data.lastname}`);
+        } catch (error) {
             setIsEmail(true)
-            setIsPassword(false)
         }
-        else if (login.password !== loginData.password) {
-            setIsEmail(false)
-            setIsPassword(true)
-        }
-        signin()
+
+        // if (login.email === loginData.email && login.password === loginData.password) {
+
+        // }
+        // else if (login.email !== loginData.email) {
+
+        // }
+        // else if (login.password !== loginData.password) {
+        //     setIsEmail(false)
+        //     setIsPassword(true)
+        // }
+        // signin()
     }
 
     /* const navigate = useNavigate()
@@ -203,7 +216,7 @@ function LoginSection({ signin }) {
                 <div>
                     <div>
                         <Form.Label htmlFor="email">
-                            <strong className="fs-5">E-mail Id</strong>
+                            <strong className="">E-mail Id</strong>
                         </Form.Label>
                     </div>
                     <Form.Control
@@ -211,13 +224,18 @@ function LoginSection({ signin }) {
                     />
                     <br />
                     <div>
-                        <Form.Label htmlFor="pass"><strong className="fs-5">Password</strong></Form.Label>
+                        <Form.Label htmlFor="pass"><strong className="">Password</strong></Form.Label>
                     </div>
                     <Form.Control
                         value={loginData.password} name='password' type='password' placeholder='Password' onChange={handleInputChange}
                     />
-                    <div className="my-3">
-                        <Button onClick={handleSubmit}>Login</Button>
+                    <div style={{ display: "flex" }}>
+                        <div className="my-3" style={{ marginRight: "5px" }}>
+                            <Button onClick={handleSubmit}>Login</Button>
+                        </div>
+                        <div className="my-3">
+                            <Link to='/register' className="btn btn-primary">Register</Link>
+                        </div>
                     </div>
                 </div>
 
@@ -229,11 +247,9 @@ function LoginSection({ signin }) {
 
             }
             {isEmail &&
-                <div className='p-3 bg-info text-white mt-5 text-center'><span><b>Incorrect email id</b></span></div>
+                <div className='p-3 bg-info text-white mt-5 text-center'><span><b>Login Fail..</b></span></div>
             }
-            {isPassword &&
-                <div className='p-3 bg-info text-white mt-5 text-center'><span><b>Incorrect password</b></span></div>
-            }
+           
         </div>
         {/* 
         <div className="container">
