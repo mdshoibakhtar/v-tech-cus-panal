@@ -47,10 +47,10 @@ function DashbordCard() {
                     </div>
                     <div className="px-1 pt-2">
                       <div className="opacity-50 card-text">
-                        <span className="card-text d-block">Add</span>
-                        New Asset
+                        <span className="card-text d-block">Total</span>
+                         Asset
                       </div>
-                      <div className="h3 fw-700 mb-1 ">+</div>
+                      {/* <div className="h3 fw-700 mb-1 ">+</div> */}
                     </div>
                   </div>
                 </div>

@@ -1,11 +1,24 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function AsideBar({ showSidebar }) {
   const [state, setState] = useState(false);
   const [auction, setAution] = useState(false);
   const [wallet, setWallet] = useState(false)
+  const names = window.localStorage.getItem('userName')
+  const mobile = window.localStorage.getItem('mobile')
+  const navigate = useNavigate()
 
+
+  const removeData = ()=>{
+    window.localStorage.setItem("token", '');
+    window.localStorage.setItem("user_id", '');
+    window.localStorage.setItem("isLogin", false);
+    window.localStorage.setItem("email", '');
+    window.localStorage.setItem("mobile", '');
+    window.localStorage.setItem("userName", '');
+    navigate('/loginPage')
+  }
   return (
     <>
       <div
@@ -20,8 +33,8 @@ function AsideBar({ showSidebar }) {
                 className="image rounded-circle"
               />
             </span>
-            <h4 className="h5 fs-16 mb-1 fw-600">Customer Name</h4>
-            <div className="text-truncate opacity-60">+91-8920073535</div>
+            <h4 className="h5 fs-16 mb-1 fw-600">{names}</h4>
+            <div className="text-truncate opacity-60">{mobile}</div>
           </div>
 
           <div className="sidemnenu mb-3">
@@ -38,7 +51,7 @@ function AsideBar({ showSidebar }) {
                   }}
                 >
                   <i className="las la-home aiz-side-nav-icon"></i>
-                  <span className="aiz-side-nav-text">Dashbord</span>
+                  <span className="aiz-side-nav-text">Dashboard</span>
                   <span className="aiz-side-nav-arrow"></span>
                 </Link>
                 <ul
@@ -172,9 +185,9 @@ function AsideBar({ showSidebar }) {
           </div>
 
           <div className="btn-logout-container mt-3 mb-3">
-            <a href="" className="logout-btn">
+            <button onClick={removeData} className="logout-btn">
               Logout
-            </a>
+            </button>
           </div>
         </div>
       </div>

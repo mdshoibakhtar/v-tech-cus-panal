@@ -38,6 +38,7 @@ import ChallanDetails from "./Customer-Panal/components/deliveryChallan/challanD
 import PurchaseOrderListPage from "./Customer-Panal/pages/purchaseOrderList";
 import LoginSection from "./loginPage/LoginAdmin";
 import Protected from "./Customer-Panal/components/protected/Protected";
+import Registration from "./Customer-Panal/components/registration/Registration";
 // import ChallanDetails from "./Customer-Panal/components/deliveryChallan/challanDetails/ChallanDetails";
 
 function App() {
@@ -57,6 +58,8 @@ function App() {
 
       <Routes>
         <Route path="/loginPage" element={<LoginSection signin={signin} />} />
+        
+        <Route path="/register" element={<Registration/>} />
         <Route path="/" element={<Navigate to="/loginPage" />} />
         {/* <Route path="/customer" element={<Protected isSignedIn={isSignedIn}> */}
         <Route
