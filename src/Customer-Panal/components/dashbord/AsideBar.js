@@ -26,7 +26,6 @@ function AsideBar({ showSidebar }) {
     dispacher(setProfile(null))
     navigate('/loginPage')
   }
-  console.log(setProfiles);
   return (
     <>
       <div
@@ -108,10 +107,23 @@ function AsideBar({ showSidebar }) {
                 </Link>
               </li>
               <li className="aiz-side-nav-item">
+                <Link to="allProducts" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <span className="aiz-side-nav-text">All Products</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
                 <Link to="Quotation" className="aiz-side-nav-link ">
                   <i className="las la-home aiz-side-nav-icon"></i>
                   <i className="bi bi-heart"></i>
                   <span className="aiz-side-nav-text">Quotations</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="cart" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">My Cart</span>
                 </Link>
               </li>
               <li className="aiz-side-nav-item">

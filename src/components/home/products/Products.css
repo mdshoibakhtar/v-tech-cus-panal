@@ -31,7 +31,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: #1111119e;
+    /* background: #1111119e; */
     z-index: 1;
 }
 
@@ -145,4 +145,8 @@
         display: flex;
         justify-content: center;
     }
+}
+
+.featuredInfo{
+    border: 1px solid #004ea2;
 }

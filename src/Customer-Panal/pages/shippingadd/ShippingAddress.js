@@ -69,10 +69,10 @@ function ShippingAddress() {
                 <h5 className="mb-0 h6">Shipping Address</h5>
             </div>
             <div className="card-body">
-                <div className="col-lg-6 mx-auto">
+                <div className="col-lg-6 mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div className="border p-3 rounded mb-3 c-pointer text-center bg-light">
                         <i className="la la-plus la-2x" />
-                        <div className="alpha-7" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Shipping Address</div>
+                        <div className="alpha-7" >Add Shipping Address</div>
                     </div>
                 </div>
                 <div className="row gutters-10">
