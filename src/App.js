@@ -41,6 +41,10 @@ import Protected from "./Customer-Panal/components/protected/Protected";
 import Registration from "./Customer-Panal/components/registration/Registration";
 import BillingAddress from "./Customer-Panal/pages/billingAdd/BillingAddress";
 import ShippingAddress from "./Customer-Panal/pages/shippingadd/ShippingAddress";
+import AllProducts from "./Customer-Panal/pages/allProducts/Index";
+import ProDetails from "./Customer-Panal/pages/productDetail/Index";
+import CartPage from "./Customer-Panal/pages/CartPage/CartPage";
+import Checkout from "./Customer-Panal/pages/checkoutpage/Index";
 // import ChallanDetails from "./Customer-Panal/components/deliveryChallan/challanDetails/ChallanDetails";
 
 function App() {
@@ -60,8 +64,8 @@ function App() {
 
       <Routes>
         <Route path="/loginPage" element={<LoginSection signin={signin} />} />
-        
-        <Route path="/register" element={<Registration/>} />
+
+        <Route path="/register" element={<Registration />} />
         <Route path="/" element={<Navigate to="/loginPage" />} />
         {/* <Route path="/customer" element={<Protected isSignedIn={isSignedIn}> */}
         <Route
@@ -70,6 +74,8 @@ function App() {
         >
           <Route path="purchase_history" element={<PurchaseHistoryPage />} />
           <Route path="" element={<DashbordCard />} />
+          <Route path="allProducts" element={<AllProducts />} />
+          <Route path="product/:id" element={<ProDetails />} />
           <Route path="wallet" element={<WalletPage />} />
           <Route
             path="purchase_history/details-page"
@@ -100,6 +106,11 @@ function App() {
           <Route path="wishlists" element={<WishlistPage />} />
           <Route path="support-tiket" element={<CustomerSupportTicketPage />} />
           <Route path="profile" element={<ManegeProfilePage />} />
+
+          <Route path="cart" element={<CartPage/>} />
+          <Route path="checkout" element={<Checkout/>} />
+
+          
           <Route path="quotation" element={<QuotationsPage />} />
           <Route
             path="quotation/quotation-details/:id"
