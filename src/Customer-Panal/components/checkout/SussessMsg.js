@@ -16,12 +16,12 @@ function SussessMsg({ plaecedData, cartValue, currencySymbol }) {
                     <h6>Amount : {currencySymbol} {cartValue?.grandTotal}</h6>
                 </div>
                 <Link to="/customer/allProducts" className="btn btn-outline-success" style={{ width: "200px", margin: "20px auto" }}>Continue Shopping</Link>
-                {/* <div style={{margin:"10px"}}>
+                <div style={{margin:"10px"}}>
                     {plaecedData?.orderList?.map((item,i)=>{
-                        return <Link key={i} to={`/order-detail/${item}`} className="btn btn-outline-info" style={{ width: "130px" ,margin:"0 5px" }}>Order Detail</Link>
+                        return <Link key={i} to={`/customer/order-detail/${item}`} className="btn btn-outline-info" style={{ width: "130px" ,margin:"0 5px" }}>Order Detail</Link>
                     })}
                     
-                </div> */}
+                </div>
 
             </div>
         </div>

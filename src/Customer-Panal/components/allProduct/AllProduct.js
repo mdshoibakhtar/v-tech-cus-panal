@@ -4,19 +4,25 @@ import { Link } from "react-router-dom"
 import { FiSearch } from "react-icons/fi";
 import { GrAdd } from "react-icons/gr";
 import { BsFillCartFill } from "react-icons/bs";
-import fertilizer1 from '../../../assets/img/client-bg.png'
+import fertilizer1 from '../../../assets/img/cultivation-white.png'
 import Rating from "../../../shared/rating/Rating";
+import { Button } from "react-bootstrap";
 function AllProduct() {
 
     const [products, setProducts] = useState(null)
+    const [load, setLoad] = useState(12)
 
     const getProducts = async () => {
-        const res = await axios.get(`https://onlineparttimejobs.in/api/product/page/0`)
+        const res = await axios.get(`https://onlineparttimejobs.in/api/product`)
         setProducts(res.data)
     }
     useEffect(() => {
         getProducts()
     }, [])
+
+    const loadMore = () => {
+        setLoad(load + 6)
+    }
     return <>
         <div className="aiz-user-panel">
             <div className="aiz-titlebar mt-2 mb-4">
@@ -41,10 +47,10 @@ function AllProduct() {
                                             <div className="col-lg-12">
 
                                                 <div
-                                                style={{display:"flex", flexWrap:"wrap"}}
+                                                    style={{ display: "flex", flexWrap: "wrap" }}
                                                 // className={`row changeGrid ${listView ? "listView" : ""}`}
                                                 >
-                                                    {products && products?.map((item, i) => {
+                                                    {products && products?.slice(0, load).map((item, i) => {
                                                         return <div className="col-lg-3 col-md-6 col-sm-12" key={i}>
                                                             <div className="featuredInfo">
                                                                 <div className="featuredFigure">
@@ -52,7 +58,7 @@ function AllProduct() {
                                                                     <div className="featuredImg" style={{ display: "flex", justifyContent: "center" }}>
 
                                                                         <Link to={`/customer/product/${item._id}`}>
-                                                                            {item?.mainimage_url ? <img src={item?.mainimage_url.url} alt="Product" className="imgProduct" /> : <img src={fertilizer1} alt="Product" />}
+                                                                            {item?.mainimage_url?.url ? <img src={item?.mainimage_url.url} alt="Product" className="imgProduct" /> : <img src={fertilizer1} alt="Producdt" />}
                                                                         </Link>
                                                                     </div>
                                                                     <ul className="hotList">
@@ -74,11 +80,11 @@ function AllProduct() {
                                                                         <span className="cross">{item?.variations ? item?.variations[0]?.mrp : ''}</span>
                                                                         <span className="currentPrice">{item?.variations ? item?.variations[0]?.sale_rate : ''}</span>
                                                                     </div>
-                                                                    <div className="buyNowInfo" style={{display:"flex"}}>
+                                                                    <div className="buyNowInfo" style={{ display: "flex" }}>
 
-                                                                        <Link style={{padding:"10px"}} to={`/customer/product/${item._id}`} className="btn btn-danger addCart">View Detail</Link>
+                                                                        <Link style={{ padding: "10px" }} to={`/customer/product/${item._id}`} className="btn btn-danger addCart">View Detail</Link>
                                                                         <Link to="#"
-                                                                        style={{padding:"10px",marginLeft:"10px",fontSize:"smaller"}}
+                                                                            style={{ padding: "10px", marginLeft: "10px", fontSize: "smaller" }}
                                                                             // onClick={() => { BuyNowPro(item) }}
                                                                             className="btn btn-primary buyNow">
                                                                             <BsFillCartFill /> Buy Now
@@ -97,8 +103,8 @@ function AllProduct() {
                                                     })}
 
                                                 </div>
-
                                             </div>
+                                            <Button style={{ width: "140px", margin: "auto" }} onClick={loadMore} variant="primary">Load more..</Button>
                                         </div>
                                     </div>
                                 </div>

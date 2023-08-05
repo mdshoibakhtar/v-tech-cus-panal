@@ -10560,3 +10560,25 @@ section {
   border: 1px solid #d4d4d4;
   border-radius: 100%;
 }
+.bar-code {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #dadada;
+}
+.showHidden > td {
+  display: table-cell !important;
+}
+.gstDtails{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.shareProduct ul {
+  align-items: center;
+  -webkit-column-gap: 10px;
+  column-gap: 10px;
+  display: flex;
+  margin: 10px 0 0;
+  padding: 0;
+}

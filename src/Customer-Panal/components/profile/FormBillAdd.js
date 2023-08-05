@@ -51,8 +51,27 @@ function FormBillAdd({ getData, ship, type }) {
         } else {
             setShippingAdd(state)
         }
+
         setTimeout(() => {
             setShow(false)
+            const obj = {
+                type: type,
+                country: "",
+                firstname: "",
+                lastname: "",
+                email: "",
+                phone: "",
+                state: "",
+                city: "",
+                zip: "",
+                addressLine1: "",
+                addressLine2: "",
+                landmark: "",
+                province: "",
+                company: "",
+                userid: window.localStorage.getItem('user_id')
+            }
+            setState(obj)
             getData()
         }, 1000);
     }
@@ -64,16 +83,38 @@ function FormBillAdd({ getData, ship, type }) {
 
     useEffect(() => {
         if (iserrorAdd) {
-            alert('Address Not Add')
+            alert('Address Add')
         }
     }, [iserrorAdd])
+
+   
+
+    const resetForms =()=>{
+        const obj = {
+            type: type,
+            country: "",
+            firstname: "",
+            lastname: "",
+            email: "",
+            phone: "",
+            state: "",
+            city: "",
+            zip: "",
+            addressLine1: "",
+            addressLine2: "",
+            landmark: "",
+            province: "",
+            company: "",
+            userid: window.localStorage.getItem('user_id')
+        }
+        setState(obj)
+    }
 
     useEffect(() => {
         if (isError) {
             alert('Address Not Add')
         }
     }, [isError])
-
 
 
     return <form className="row">
@@ -116,40 +157,40 @@ function FormBillAdd({ getData, ship, type }) {
 
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">Country</label>
-            <input type="text" className="form-control" name="country" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" value={state.country} className="form-control" name="country" onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
 
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">State</label>
-            <input type="text" className="form-control" name="state" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" value={state.state} className="form-control" name="state" onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">City</label>
-            <input type="text" className="form-control" name="city" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" value={state.city} className="form-control" name="city" onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">ZIP</label>
-            <input type="text" className="form-control" name="zip" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" value={state.zip} className="form-control" name="zip" onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">Province</label>
-            <input type="text" className="form-control" name="province" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" className="form-control" value={state.province} name="province" onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">Address Line1</label>
-            <input type="text" className="form-control" name="addressLine1" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" className="form-control" value={state.addressLine1} name="addressLine1" onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">Address Line2</label>
-            <input type="text" className="form-control" name="addressLine2" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" className="form-control" name="addressLine2" value={state.addressLine2} onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">Landmark</label>
-            <input type="text" className="form-control" name="landmark" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" className="form-control" name="landmark" value={state.landmark} onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         <div className="mb-3 col-6">
             <label htmlFor="exampleInputEmail1" className="form-label">Company</label>
-            <input type="text" className="form-control" name="company" onChange={onchengeHandle} aria-describedby="emailHelp" />
+            <input type="text" className="form-control" name="company" value={state.company} onChange={onchengeHandle} aria-describedby="emailHelp" />
         </div>
         {isSuccess && (<div className="alert alert-success" role="alert">
             Address Add Successfully!
@@ -158,9 +199,12 @@ function FormBillAdd({ getData, ship, type }) {
             Address Add Successfully!
         </div>)}
 
-        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-primary" onClick={onsubmitData}>Submit  {show && <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div>}</button>
+        <div>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-primary" onClick={onsubmitData}>Submit  {show && <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>}</button>
+            <button style={{margin:"0 10px" , color:"black"}} onClick={resetForms} type="button" className="btn btn-info" >Reset</button>
+        </div>
     </form>
 }
 export default FormBillAdd

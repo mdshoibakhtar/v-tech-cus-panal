@@ -3,8 +3,12 @@ import img1 from "../../../assets/img/wishlist/gallery-img-7.jpg";
 import img2 from "../../../assets/img/wishlist/gallery-img-8.jpg";
 import img3 from "../../../assets/img/wishlist/gallery-img-9.jpg";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { useDeleteWishlistMutation, useSetCartMutation } from "../products/productSlice";
 
 function WishList() {
+
+  const [deleteWishlist, { isSuccess, isError }] = useDeleteWishlistMutation()
 
   const userid = window.localStorage.getItem("user_id");
 
@@ -26,18 +30,49 @@ function WishList() {
 
 
   const deleteItem = async (id) => {
-    try {
-      const res = await axios.delete(`https://onlineparttimejobs.in/api/product/wishlist/delete_wishlist/${id}`, {
-        userid: userid
-      })
-      getData()
-    } catch (error) {
-      alert('Server error Wislist not remove !!')
-    }
+    deleteWishlist({ id: id, userId: userid });
+
   }
 
+  useEffect(() => {
+    if (isSuccess) {
+      alert('Product Remove from Wislist !!')
+      getData()
+    }
+    if (isError) {
+      alert('Server error Wislist not remove !!')
+    }
+  }, [isSuccess, isError])
 
 
+
+  const navigator = useNavigate()
+  const [addToCart, { data: datacart, isLoading: isAddCartLoading, isSuccess: isAddToCartSuccess, isError: isAddToCartError }] = useSetCartMutation()
+  const addTocart = async (item) => {
+    console.log(item);
+    const obj = {
+      deliveryType: "HOME DELIVERY",
+      product_count: 1,
+      product_id: item._id,
+      product_variant: item.variations[0]._id,
+      sku: item.variations[0].sku,
+      userid: userid
+    }
+    addToCart(obj)
+
+  }
+  useEffect(() => {
+    if (isAddToCartSuccess) {
+      alert('Add TO Cart successfully...')
+      setTimeout(() => {
+        navigator('/customer/cart')
+      }, 1000);
+    }
+    if (isAddToCartError) {
+      alert('Add TO Cart Fail...')
+
+    }
+  }, [isAddToCartSuccess, isAddToCartError])
 
   return (
     <>
@@ -64,42 +99,40 @@ function WishList() {
                     href="#"
                     className="d-block mb-3"
                   >
-                    <img src={img1} className="img-fit h-140px h-md-200px" />
+                    <img style={{ objectFit: "contain" }} src={item?.mainimage_url?.url} className="img-fit h-140px h-md-200px" />
                   </a>
                   <h5 className="fs-14 mb-0 lh-1-5 fw-600 text-truncate-2">
-                    <a
-                      href="#"
+                    <Link
+                      to={`/customer/product/${item._id}`}
                       className="text-reset"
                     >
-                      Ram
-                    </a>
+                      {item.name}
+                    </Link>
                   </h5>
-                  <div className="rating rating-sm mb-1">
+                  {/* <div className="rating rating-sm mb-1">
                     <i className="las la-star" />
                     <i className="las la-star" />
                     <i className="las la-star" />
                     <i className="las la-star" />
                     <i className="las la-star" />
-                  </div>
+                  </div> */}
                   {/* <div className=" fs-14">
       <span className="fw-600 text-primary">ZK300.00</span>
     </div> */}
                 </div>
                 <div className="card-footer">
-                  <a
-                    href="#"
-                    className="link link--style-3"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Remove from wishlist"
-                    onclick={deleteItem}
-                  >
-                    <i className="la la-trash la-2x" />
-                  </a>
                   <button
                     type="button"
+                    className="link link--style-3"
+                    title="Remove from wishlist"
+                    onClick={() => { deleteItem(item._id) }}
+                  >
+                    <i className="la la-trash la-2x" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { addTocart(item) }}
                     className="btn btn-sm btn-block btn-primary ml-3"
-                    onclick="showAddToCartModal(2)"
                     fdprocessedid="6shmub"
                   >
                     <i className="la la-shopping-cart mr-2" />
