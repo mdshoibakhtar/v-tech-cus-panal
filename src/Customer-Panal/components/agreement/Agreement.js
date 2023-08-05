@@ -77,7 +77,7 @@ function Agreement() {
                   <td
                     className="footable-last-visible"
                     style={{ display: "table-cell" }}
-                  ><span class="badge badge-inline badge-danger" style={{ color: "black", backgroundColor: item?.status === "Pending" ? "yellow" : item?.status === 'Delivered' ? 'blue' : item?.status === 'Rejected' ? 'red' : "transparent" }}>
+                  ><span class="badge badge-inline badge-danger" style={{ color: "black", backgroundColor: item?.status === "Pending" ? "yellow" : item?.status === 'Delivered' ? 'blue' : item?.status === 'approve' ? 'red' : "transparent",color:item.status === 'approve' ? "white" :"black" }}>
                       {item?.status}
                     </span></td>
                   <td

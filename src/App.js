@@ -45,6 +45,12 @@ import AllProducts from "./Customer-Panal/pages/allProducts/Index";
 import ProDetails from "./Customer-Panal/pages/productDetail/Index";
 import CartPage from "./Customer-Panal/pages/CartPage/CartPage";
 import Checkout from "./Customer-Panal/pages/checkoutpage/Index";
+import MyAccountDetail from "./Customer-Panal/pages/myAccountDetail/Index";
+import OrderDetail from "./Customer-Panal/pages/orderDetails/Index";
+import CancellOrders from "./Customer-Panal/pages/cancellorders/CancellOrders";
+import TrackOrderPage from "./Customer-Panal/pages/track-order";
+import ChangePassword from "./Customer-Panal/pages/changePass/ChangePassword";
+import RmaHistory from "./Customer-Panal/pages/rmahistory/RmaHistory";
 // import ChallanDetails from "./Customer-Panal/components/deliveryChallan/challanDetails/ChallanDetails";
 
 function App() {
@@ -77,6 +83,8 @@ function App() {
           <Route path="allProducts" element={<AllProducts />} />
           <Route path="product/:id" element={<ProDetails />} />
           <Route path="wallet" element={<WalletPage />} />
+          <Route path="cancelOrders" element={<CancellOrders/>} />
+          <Route path="trackmyOrders" element={<TrackOrderPage/>} />
           <Route
             path="purchase_history/details-page"
             element={<HistoryDetailsPage />}
@@ -95,6 +103,7 @@ function App() {
 
           <Route path="Shipping" element={<ShippingAddress />} />
           <Route path="Billing" element={<BillingAddress />} />
+          <Route path="changePass" element={<ChangePassword />} />
 
 
           <Route path="invoices" element={<InvoicesPage />} />
@@ -109,6 +118,9 @@ function App() {
 
           <Route path="cart" element={<CartPage/>} />
           <Route path="checkout" element={<Checkout/>} />
+          <Route path="rmahistor" element={<RmaHistory/>} />
+          <Route path="myOrders" element={<MyAccountDetail/>} />
+          <Route path="order-detail/:id" element={<OrderDetail/>} />
 
           
           <Route path="quotation" element={<QuotationsPage />} />

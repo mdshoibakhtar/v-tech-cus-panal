@@ -45,7 +45,7 @@ function AsideBar({ showSidebar }) {
               />}
               
             </span>
-            <h4 className="h5 fs-16 mb-1 fw-600">{setProfiles?.profileData?.firstname} {setProfiles?.profileData?.lastname}</h4>
+            <h4 className="h5 fs-16 mb-1 fw-600" style={{textTransform:"uppercase"}}>{setProfiles?.profileData?.firstname} {setProfiles?.profileData?.lastname}</h4>
             <div className="text-truncate opacity-60">{setProfiles?.profileData?.mobile}</div>
           </div>
 
@@ -115,7 +115,7 @@ function AsideBar({ showSidebar }) {
               <li className="aiz-side-nav-item">
                 <Link to="Quotation" className="aiz-side-nav-link ">
                   <i className="las la-home aiz-side-nav-icon"></i>
-                  <i className="bi bi-heart"></i>
+                  <i className="bi bi-heart "></i>
                   <span className="aiz-side-nav-text">Quotations</span>
                 </Link>
               </li>
@@ -131,6 +131,34 @@ function AsideBar({ showSidebar }) {
                   <i className="las la-home aiz-side-nav-icon"></i>
                   <i className="bi bi-heart"></i>
                   <span className="aiz-side-nav-text">My Wishlist</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="myOrders" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">My Orders</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="trackmyOrders" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">Track My Orders</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="rmahistor" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">RMA History</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="cancelOrders" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <i className="bi bi-heart"></i>
+                  <span className="aiz-side-nav-text">Cancel Orders</span>
                 </Link>
               </li>
               <li className="aiz-side-nav-item">
@@ -213,6 +241,12 @@ function AsideBar({ showSidebar }) {
                 <Link to="profile" className="aiz-side-nav-link ">
                   <i className="las la-user aiz-side-nav-icon"></i>
                   <span className="aiz-side-nav-text">Manage Profile</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="changePass" className="aiz-side-nav-link ">
+                  <i className="las la-user aiz-side-nav-icon"></i>
+                  <span className="aiz-side-nav-text">Change Password</span>
                 </Link>
               </li>
 

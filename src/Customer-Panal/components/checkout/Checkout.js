@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
-import { BsCheckCircleFill } from "react-icons/bs";
-import { FaInfoCircle } from "react-icons/fa";
+import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -33,9 +32,6 @@ function CheckoutPage() {
     }
   }, [isSuccess])
 
-
-  const [deleteList] = useClearAllListMutation()
-  let isTempLoading = false
   // const [addAddress] = useAddAddressDetailMutation()
 
   const [showModal, setShowMoal] = useState(true)
@@ -219,9 +215,41 @@ function CheckoutPage() {
 
     }
   }
+  const [billadd, setBillAdd] = useState()
+
+  const billAdd = async () => {
+    try {
+      const res = await axios.get(`https://onlineparttimejobs.in/api/user/billAddress/${userid}`)
+      setBillAdd(res.data.address)
+    } catch (error) {
+
+    }
+  }
+
+  const changeBillings = (e) => {
+    const obj = billadd.find((item) => {
+      return item._id === e.target.value
+    })
+    console.log(obj);
+    const obj2 = {
+      btype: "billing",
+      bcountry: obj?.country,
+      bstate: obj?.state,
+      bcity: obj?.city,
+      bzip: obj?.zip,
+      baddressLine1: obj?.addressLine1,
+      baddressLine2: obj?.addressLine2,
+      blandmark: obj?.landmark,
+      bprovince: obj?.province,
+      bcompany: obj?.company,
+      userid: window.localStorage.getItem('user_id')
+    }
+    setFormData(obj2)
+  }
 
   useEffect(() => {
     getPayments1()
+    billAdd()
   }, [])
 
   return (
@@ -251,7 +279,7 @@ function CheckoutPage() {
             </div>
           </div>}
 
-          <div className="row" style={{width:"750px",margin:"auto"}}>
+          <div className="row" style={{ width: "750px", margin: "auto" }}>
             <div className="col-lg-12">
               {!isLogin && <div className="loginInfo">
 
@@ -270,14 +298,20 @@ function CheckoutPage() {
             <div className="col-lg-7">
               <div className="checkoutBody">
                 <div className="billingDetails">
+
+                  <h6>Change Billing Address</h6>
+                  <div style={{ margin: "10px 0" }}>
+                    <Form.Select aria-label="Default select example" onChange={changeBillings}>
+                      <option>Open this select menu</option>
+
+                      {billadd && billadd.map((item) => {
+                        // console.log(item);
+                        return <option key={item._id} value={item._id}>{item?.country} {item?.state} {item.city} {item.landmark} {item?.addressLine1} {item?.addressLine2}</option>
+                      })}
+                    </Form.Select>
+                  </div>
+
                   <h5>Billing Details</h5>
-
-                  {/* {isSuccess && <div className="preloaderCount">
-                    <div className="spinner-border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
-                  </div>} */}
-
                   <CustomToaster color={showTaoster.color} title={data?.name} show={showTaoster.show} setShow={handleToaster} message={showTaoster.message} position="bottom-end" delay={3000} />
 
                   <form className="row">

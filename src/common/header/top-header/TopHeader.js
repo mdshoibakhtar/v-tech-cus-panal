@@ -27,7 +27,7 @@ function TopHeader() {
               <div className="col-md-12">
                 <div className="full">
                   <div className="topbar-left">
-                    <ul className="list-inline">
+                    {/* <ul className="list-inline">
                       <li>
                         <span className="topbar-label">
                           <i className="fa fa-home" />
@@ -37,7 +37,7 @@ function TopHeader() {
                           Bank Gangadham Chowk,Marketyard,Pune-411037.
                         </span>
                       </li>
-                    </ul>
+                    </ul> */}
                   </div>
                 </div>
               </div>

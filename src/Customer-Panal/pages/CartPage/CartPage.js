@@ -199,7 +199,7 @@ function CartPage() {
                                                             <Link
                                                                 to={`/product/${item?.product?._id}`}
                                                                 className="productImage"
-                                                                style={{ height: "80px" }}
+                                                                // style={{ height: "80px" }}
                                                             >
                                                                 {item?.product?.mainimage_url?.url ? <img
                                                                     src={item?.product?.mainimage_url?.url}

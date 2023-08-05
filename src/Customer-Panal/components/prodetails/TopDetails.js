@@ -11,10 +11,11 @@ import payment4 from "../../../assets/img/payment/4.svg";
 import payment5 from "../../../assets/img/payment/5.svg";
 import payment6 from "../../../assets/img/payment/6.svg";
 import payment7 from "../../../assets/img/payment/7.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineHeart, AiOutlineNumber, AiTwotoneHeart } from "react-icons/ai";
 import pickupVan from "../../../assets/img/pickup.png";
 import { useSetCartMutation, useSetWishListMutation } from "../products/productSlice";
+import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
 
 // function createMarkup(data) {
 //     return { __html: data };
@@ -88,17 +89,44 @@ function TopDetails({ param }) {
             userid: userid
         }
         addToCart(obj)
-      
+
     }
     useEffect(() => {
         if (isAddToCartSuccess) {
-            alert('Order Place successfully...')
+            alert('Add TO Cart successfully...')
         }
         if (isAddToCartError) {
-            alert('Order Not Place !!')
+            alert('Add TO Cart  Faill ... !!')
         }
 
     }, [isAddToCartSuccess, isAddToCartError])
+
+
+
+    const navigate = useNavigate()
+
+    const BuyNowItem = (id) => {
+        const product_count = window.localStorage.getItem("productCount");
+
+        const userid = window.localStorage.getItem("user_id");
+        const product_id = param
+        const product_variant = window.localStorage.getItem("variationsId")
+
+        const payload = {
+            product_count: product_count,
+            product_variant: window.localStorage.getItem('variationsId'),
+            product_id: param,
+            deliveryType: "HOME DELIVERY",
+            userid,
+            seller_id: null,
+            sku: skus,
+        }
+        addToCart(payload)
+
+        setTimeout(() => {
+            navigate('/customer/cart')
+        }, 1000);
+    }
 
     return <section id="services" className="services section-bg">
         <div className="container">
@@ -216,7 +244,7 @@ function TopDetails({ param }) {
                                 <ul className="spe_ul"></ul>
                                 <div className="_p-qty-and-cart">
                                     <div className="_p-add-cart">
-                                        <button className="btn-theme btn buy-btn" tabIndex="0">
+                                        <button onClick={BuyNowItem} type="button" className="btn-theme btn buy-btn" tabIndex="0">
                                             <i className="fa fa-shopping-cart"></i> Buy Now
                                         </button>
                                         <button type="button" onClick={addTocart} className="btn-theme btn btn-success" tabIndex="0">
@@ -229,7 +257,41 @@ function TopDetails({ param }) {
                                 </div>
                             </form>
                         </div>
+
+                        <div className="shareProductSec borderTop">
+                            <div className="titleText">
+                                <AiOutlineNumber />
+                                <h6>Share</h6>
+                            </div>
+                            <div className="shareProduct">
+                                <ul>
+
+
+
+                                    <li>
+                                        <FacebookShareButton
+                                            url={`https://etgfrontlive.s3infotech.online/product/${param}`}
+                                        >
+                                            <FacebookIcon logofillcolor='white' round={true}></FacebookIcon>
+                                        </FacebookShareButton>
+                                    </li>
+
+                                    <li>
+                                        <WhatsappShareButton
+                                            url={`https://etgfrontlive.s3infotech.online/product/${param}`}
+                                        >
+                                            <WhatsappIcon logofillcolor='white' round={true}></WhatsappIcon>
+                                        </WhatsappShareButton>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+
+
+
                 </div>
             </div>
         </div>
