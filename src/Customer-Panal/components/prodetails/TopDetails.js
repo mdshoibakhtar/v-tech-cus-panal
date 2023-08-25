@@ -176,7 +176,7 @@ function TopDetails({ param }) {
                             </div>
                             <div className="_p-add-cart">
                                 <div className="_p-qty">
-                                    <span style={{ fontSize: '16px' }} >Select Type </span>
+                                    <span style={{ fontSize: '16px' }} >Select Variant </span>
                                     <div className="fortypePro">
                                         {data && data?.getaProduct?.variations.map((item, i) => {
                                             return <span onClick={() => { sendVariant(i, item) }} className={i === count && 'setColor'} key={i}>{item?.weight}</span>

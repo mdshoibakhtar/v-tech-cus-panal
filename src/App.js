@@ -51,6 +51,12 @@ import CancellOrders from "./Customer-Panal/pages/cancellorders/CancellOrders";
 import TrackOrderPage from "./Customer-Panal/pages/track-order";
 import ChangePassword from "./Customer-Panal/pages/changePass/ChangePassword";
 import RmaHistory from "./Customer-Panal/pages/rmahistory/RmaHistory";
+import RentalProduct from "./Customer-Panal/pages/rentalProduct/RentalProduct";
+import RentProDetail from "./Customer-Panal/pages/rentalProduct/RentProDetail";
+import RentalCart from "./Customer-Panal/pages/rental-allProducts-cart/RentalCart";
+import ProductsPage from "./Customer-Panal/pages/products";
+import ProductDetail from "./Customer-Panal/components/prodetails/ProductDetail";
+import ProductDetails from "./Customer-Panal/components/home/product-detail/ProductDetail";
 // import ChallanDetails from "./Customer-Panal/components/deliveryChallan/challanDetails/ChallanDetails";
 
 function App() {
@@ -81,7 +87,9 @@ function App() {
           <Route path="purchase_history" element={<PurchaseHistoryPage />} />
           <Route path="" element={<DashbordCard />} />
           <Route path="allProducts" element={<AllProducts />} />
-          <Route path="product/:id" element={<ProDetails />} />
+          <Route path="rental-allProducts" element={<RentalProduct />} />
+          <Route path="product/:id" element={<ProductDetails/>} />
+          <Route path="rent-product/:id" element={<RentProDetail />} />
           <Route path="wallet" element={<WalletPage />} />
           <Route path="cancelOrders" element={<CancellOrders/>} />
           <Route path="trackmyOrders" element={<TrackOrderPage/>} />
@@ -117,6 +125,7 @@ function App() {
           <Route path="profile" element={<ManegeProfilePage />} />
 
           <Route path="cart" element={<CartPage/>} />
+          <Route path="rental-allProducts-cart" element={<RentalCart/>} />
           <Route path="checkout" element={<Checkout/>} />
           <Route path="rmahistor" element={<RmaHistory/>} />
           <Route path="myOrders" element={<MyAccountDetail/>} />

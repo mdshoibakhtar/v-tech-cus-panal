@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import Breadcrumb from "../../shared/breadcrumb/Breadcrumb";
+// import Breadcrumb from "../../shared/breadcrumb/Breadcrumb";
 import ProductItem from "../home/products/product/ProductItem";
-import ProductFilter from "../products-filter/ProductsFilter";
+// import ProductFilter from "../products-filter/ProductsFilter";
 import "./Products.css";
-import CollectionFilter from "../collecttion-filter/CollectionFilter";
+// import CollectionFilter from "../collecttion-filter/CollectionFilter";
 import { productViewContext } from "../../pages/products";
 import { Helmet } from "react-helmet";
-import QuiekViewModal from "../../pages/QueikViewModal/QuiekViewModal";
+// import QuiekViewModal from "../../pages/QueikViewModal/QuiekViewModal";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 let showProduct = 10;
@@ -220,7 +220,7 @@ function Products() {
         />
       </Helmet>
 
-      <Breadcrumb title="Products" />
+      {/* <Breadcrumb title="Products" /> */}
       <section className="prodcutsSec">
         <div className="container">
           <div className="row">
@@ -232,17 +232,17 @@ function Products() {
             </div>}
 
             <div className="col-lg-3 col-md-4 col-sm-12">
-              <ProductFilter filterdValues={filterdValues} getFilterdData={getFilterdData} />
+              {/* <ProductFilter filterdValues={filterdValues} getFilterdData={getFilterdData} /> */}
             </div>
             <div className="col-lg-9 col-md-8 col-sm-12">
               <div className="row">
                 <div className="col-lg-12">
-                  <CollectionFilter
+                  {/* <CollectionFilter
                     handleList={handleList}
                     handleGrid={handleGrid}
                     totalProductLength={totalProductLength}
                     getDataShort={getDataShort}
-                  />
+                  /> */}
                   <div
                     className={`row changeGrid ${listView ? "listView" : ""}`}
                   >
@@ -290,10 +290,10 @@ function Products() {
           </div>
         </div>
 
-        {modelDataId && (
+        {/* {modelDataId && (
           <QuiekViewModal modelDataId={modelDataId} show={show} onHide={handleClose} size="xl"
             centered />
-        )}
+        )} */}
       </section>
     </>
   );
