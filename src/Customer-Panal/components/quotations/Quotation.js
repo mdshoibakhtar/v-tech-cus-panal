@@ -8,8 +8,14 @@ import axios from "axios";
 
 function QuotationDetails() {
   const [quotationData, setQuotationData] = useState(null)
+  const token1 = window.localStorage.getItem('token')
   const getQuotationList = async () => {
-    const response = await axios.get(`${base_Url_cust}serviceQuotation`)
+    const response = await axios.get(`${base_Url_cust}serviceQuotation/public`, {
+      headers: {
+        "content-type": "application/json; charset=UTF-8",
+        Authorization: 'Bearer ' + token1,
+      },
+    })
     setQuotationData(response.data)
   }
   useEffect(() => {

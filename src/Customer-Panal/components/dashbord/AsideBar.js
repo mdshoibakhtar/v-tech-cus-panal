@@ -113,6 +113,18 @@ function AsideBar({ showSidebar }) {
                 </Link>
               </li>
               <li className="aiz-side-nav-item">
+                <Link to="rental-allProducts" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <span className="aiz-side-nav-text">Rental Products</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
+                <Link to="rental-allProducts-cart" className="aiz-side-nav-link ">
+                  <i className="las la-home aiz-side-nav-icon"></i>
+                  <span className="aiz-side-nav-text">Rental Products Cart</span>
+                </Link>
+              </li>
+              <li className="aiz-side-nav-item">
                 <Link to="Quotation" className="aiz-side-nav-link ">
                   <i className="las la-home aiz-side-nav-icon"></i>
                   <i className="bi bi-heart "></i>

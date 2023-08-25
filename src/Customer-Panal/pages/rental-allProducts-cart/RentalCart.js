@@ -1,0 +1,187 @@
+import { AiFillDelete } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { ApiQuatity } from "../CartPage/ApiQuantity";
+import { useState } from "react";
+import productSmall1 from "../../../assets/img/products/2.jpg";
+function RentalCart() {
+    const [showData, setShowData] = useState(null)
+
+    const getCartData = async () => {
+     
+    }
+
+    const deleteSingle = (id) => {
+       
+
+    }
+    return <section className="cartBody">
+
+        {/* {isLoading && <div className="preloaderCount">
+            <h4>Coupon Applling</h4>
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>}
+        {isLoadingDelete && <div className="preloaderCount">
+            <h4>Product Delete</h4>
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>} */}
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-9">
+                    <div className="cartTable">
+                        <table className="table cartTablePage">
+                            <thead>
+                                <tr className="fontHead">
+                                    <th><AiFillDelete /></th>
+                                    <th>Product Name</th>
+                                    <th>Product</th>
+                                    <th>Variation</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Sub-Total</th>
+                                    <th>Tax%</th>
+                                    <th>Tax Amt</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {false &&
+                                    showData?.cart?.products?.map((item, i) => {
+                                        return (
+                                            <tr key={i}>
+                                                <td><AiFillDelete onClick={() => deleteSingle(item._id)} /></td>
+                                                <td>   <h6>
+                                                    <Link to={`customer/product/${item?.product?._id}`}>
+                                                        {item?.product?.name}
+                                                    </Link>{" "}
+                                                </h6></td>
+                                                <td>
+                                                    <div className="productImageInfo">
+                                                        <figure>
+                                                            <Link
+                                                                to={`/product/${item?.product?._id}`}
+                                                                className="productImage"
+                                                            // style={{ height: "80px" }}
+                                                            >
+                                                                {item?.product?.mainimage_url?.url ? <img
+                                                                    src={item?.product?.mainimage_url?.url}
+                                                                    alt={`${item?.product?.name}`}
+                                                                /> : <img
+                                                                    src={productSmall1}
+                                                                    alt={`${item?.product?.name}`}
+                                                                />}
+
+                                                            </Link>
+                                                        </figure>
+
+                                                    </div>
+                                                </td>
+                                                <td>{item?.variations[0]?.weight}</td>
+                                                <td>
+                                                    {item.product && (
+                                                        <h6> {item?.variations[0]?.sale_rate}</h6>
+                                                    )}
+                                                </td>
+
+
+                                                <td>
+                                                    <ApiQuatity countValue={item.count} item={item} getCartData={getCartData} />
+                                                </td>
+                                                <td>
+                                                    {item.subTotal}
+                                                </td>
+
+                                                <td>
+                                                    <div style={{ display: "flex", justifyContent: "center" }}>{item?.variations[0]?.tax}</div>
+                                                </td>
+                                                <td>
+                                                    <div style={{ display: "flex", justifyContent: "center" }}>{item.tax}</div>
+                                                </td>
+                                                <td>
+                                                    <h6>
+                                                        {item?.total}
+                                                    </h6>
+                                                </td>
+
+                                            </tr>
+                                        );
+
+                                    })}
+                            </tbody>
+                        </table>
+                        {showData?.subTotal > 0 && <h5>Grand Total :  333</h5>}
+                    </div>
+                    <div className="cartDiscountInfo">
+                        <div className="updateBtn d-flex">
+
+
+                            <button
+                                type="button"
+                                className="btn btn-danger"
+                                style={{ marginLeft: "10px", backgroundColor: "red" }}
+                            >
+                                Clear All
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="col-lg-3">
+                    <div className="cartTotals">
+                        <input placeholder="Apply Coupon" className="form-control"  />
+                        <button type="button" className="btn btn-info" style={{ margin: '10px 0' }} >Apply Coupon</button>
+                        <h5 className="cartTitle">Price Details</h5>
+
+                        <div className="subTotal">
+                            <h6>Base Price</h6>
+                            <p> {showData?.basePrice}</p>
+                        </div>
+
+                        <div className="subTotal">
+                            <h6>Discount Amount </h6>
+                            <p> {showData?.discount}</p>
+                        </div>
+
+
+                        <div className="subTotal">
+                            <h6>Sub Total</h6>
+                            <p> {showData?.subTotal}</p>
+                        </div>
+
+                        <div className="subTotal">
+                            <h6>Tax Amount</h6>
+                            <p> {showData?.tax}</p>
+                        </div>
+                        <div className="subTotal">
+                            <h6>Shipping</h6>
+                            <p> {showData?.shippingCost}</p>
+                        </div>
+
+                        <div className="subTotal">
+                            <h6>Grand Total</h6>
+                            <p> {showData?.grandTotal}</p>
+                        </div>
+                        <hr />
+                        <button
+                            type="button"
+                            className="btn btn-success spinnerBtn"
+                            // onClick={orderConfirm}
+                            style={{ backgroundColor: "green", border: "none", fontSize: '15px' }}
+                        >
+                            proceed to checkout
+                        </button>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+}
+export default RentalCart

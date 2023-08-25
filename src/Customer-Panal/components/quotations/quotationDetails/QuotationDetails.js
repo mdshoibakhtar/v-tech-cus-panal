@@ -328,62 +328,6 @@ function QuotationDetails() {
                       </tr>
                     </thead>
                     <tbody>
-                      {/* <tr>
-                        <td
-                          className="footable-first-visible"
-                          style={{ display: "table-cell" }}
-                        >
-                          1
-                        </td>
-                        <td style={{ display: "table-cell" }}>
-                          <a href="#">
-                            <img
-                              height={50}
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTebj25c_sSO2ZbxXO9RCZNbi4PUarZ9tM7_WD-O85l_PljOdKHY5dYHiC32QS3J7mP-1U&usqp=CAU"
-                            />
-                          </a>
-                        </td>
-                        <td style={{ display: "table-cell" }}>
-                          <strong>computer Hardware</strong>
-                          <small />
-                          <br />
-                        </td>
-                        <td style={{ display: "table-cell" }}>
-                          <strong>grey</strong>
-                          <small />
-                          <br />
-                        </td>
-                        <td style={{ display: "table-cell", textAlign: "right" }}>
-                          1
-                        </td>
-                        <td style={{ display: "table-cell", textAlign: "right" }}>
-                          <small>180</small>
-                        </td>
-                        <td
-                          className="text-right"
-                          style={{ display: "table-cell" }}
-                        >
-                          180
-                        </td>
-                        <td
-                          className="text-right footable-last-visible"
-                          style={{ display: "table-cell", textAlign: "right" }}
-                        >
-                          9
-                        </td>
-                        <td
-                          className="text-right footable-last-visible"
-                          style={{ display: "table-cell" }}
-                        >
-                          189
-                        </td>
-                        <td
-                          className="text-center footable-last-visible"
-                          style={{ display: "table-cell" }}
-                        >
-                          HOME DELIVERY
-                        </td>
-                      </tr> */}
                       {quotation?.products?.map((item, i) => {
                         return <tr key={i}>
                           <td
@@ -401,12 +345,12 @@ function QuotationDetails() {
                             </a>
                           </td> */}
                           <td style={{ display: "table-cell" }}>
-                            <strong>{item?.variantId?.productId?.name}</strong>
+                            <strong>{item?.productId?.name}</strong>
                             <small />
                             <br />
                           </td>
                           <td style={{ display: "table-cell" }}>
-                            <strong>{item?.variantId?.sku}</strong>
+                            <strong>{item?.variantId?.weight}</strong>
                             <small />
                             <br />
                           </td>
